@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Generate static site
+        run: pnpm generate
+        env:
+          # The site is served from https://safegergis.github.io/wedding-website/,
+          # so every asset and link needs that prefix baked in at build time.
+          NUXT_APP_BASE_URL: /wedding-website/
+          # Repository variables override the fillers in nuxt.config.ts. Set them with:
+          #   gh variable set WEDDING_PASSWORD --body 'the-real-password'
+          #   gh variable set INVITE_TOKEN --body 'the-real-token'
+          # The fallbacks are spelled out because an empty env var would override
+          # the config default with an empty string.
+          NUXT_PUBLIC_WEDDING_PASSWORD: ${{ vars.WEDDING_PASSWORD || 'ourstory2026' }}
+          NUXT_PUBLIC_INVITE_TOKEN: ${{ vars.INVITE_TOKEN || 'qr-invite' }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

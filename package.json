@@ -2,6 +2,7 @@
   "name": "wedding-website",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -10,6 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.14.0",
     "@tailwindcss/vite": "^4.3.3",
     "nuxt": "^4.5.1",
     "tailwindcss": "^4.3.3",
