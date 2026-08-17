@@ -22,10 +22,11 @@ const { activeSection, folios } = useBook()
 <template>
   <section class="spread paper-grain">
     <div class="spread-leaf spread-leaf--plate" :class="{ 'spread-leaf--bleed': plateBleed }">
-      <div class="flex w-full min-h-0 flex-1 flex-col items-center justify-center gap-4">
+      <div class="leaf-plate-body flex w-full min-h-0 flex-1 flex-col items-center gap-4">
         <slot name="plate" />
       </div>
       <footer v-if="folios.verso" class="leaf-foot hidden lg:block">
+        <DecoRule class="folio-mark" />
         <p class="folio folio--verso">· {{ folios.verso }} ·</p>
       </footer>
     </div>
@@ -41,6 +42,7 @@ const { activeSection, folios } = useBook()
         <slot />
       </div>
       <footer v-if="folios.recto || activeSection.verse" class="leaf-foot">
+        <DecoRule v-if="folios.recto" class="folio-mark" />
         <p v-if="folios.recto" class="folio folio--recto">· {{ folios.recto }} ·</p>
         <p v-if="activeSection.verse" class="folio-verse">
           <span class="folio-verse__line">&ldquo;{{ activeSection.verse.text }}&rdquo;</span>

@@ -43,7 +43,8 @@ function submit() {
           autocorrect="off"
           spellcheck="false"
           enterkeyhint="go"
-          class="mt-2 mb-6 w-full border-0 border-b border-blush-300 bg-transparent px-1 pb-2 text-center text-xl text-blush-900 transition-colors focus:border-blush-600 focus:outline-none"
+          placeholder="Type it here"
+          class="mt-2 mb-6 w-full border-0 border-b border-blush-300 bg-transparent px-1 pb-2 text-center text-xl text-blush-900 transition-colors placeholder:text-base placeholder:italic placeholder:text-blush-500 focus:border-blush-600 focus:outline-none"
         >
 
         <button type="submit" class="btn-seal deco-cut w-full">Open the book</button>

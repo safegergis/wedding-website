@@ -2,7 +2,7 @@
   <BookSpread heading="RSVP">
     <template #plate>
       <p class="script max-w-[16rem]">Will you join us?</p>
-      <DecoRule />
+      <DecoRule plain />
       <p class="label-sm">Kindly reply by</p>
       <p class="text-blush-800">September 27th, 2026</p>
     </template>

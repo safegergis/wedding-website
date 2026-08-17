@@ -1,11 +1,17 @@
 <script setup lang="ts">
-const { isAuthenticated, unlockWithInvite } = useAuth()
+const { isAuthenticated, restore, unlockWithInvite } = useAuth()
 const route = useRoute()
 
-const inviteToken = route.query.invite
-if (typeof inviteToken === 'string') {
-  unlockWithInvite(inviteToken)
-}
+// Static deploy: every route serves the same prerendered HTML, which always
+// holds the closed cover. The cookie and the QR token are read after hydration
+// so the first client render still matches that markup.
+onMounted(() => {
+  restore()
+  const inviteToken = route.query.invite
+  if (typeof inviteToken === 'string') {
+    unlockWithInvite(inviteToken)
+  }
+})
 
 useHead({
   title: 'Merola & Safe · November 22, 2026',

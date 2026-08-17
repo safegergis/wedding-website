@@ -80,6 +80,5 @@ const particulars = [
       </div>
     </dl>
 
-    <DecoRule class="mt-8" />
   </BookSpread>
 </template>

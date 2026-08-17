@@ -207,6 +207,13 @@
     border-bottom: 1px solid var(--color-blush-200);
   }
 
+  /* The plate's contents, centred on the leaf. "safe" so that a plate which
+     outgrows its leaf on the spread scrolls from the top instead of being
+     clipped at both ends the way plain centring would leave it. */
+  .leaf-plate-body {
+    justify-content: safe center;
+  }
+
   /* A plate trimmed flush: the photograph runs to the edges of the leaf.
      The running foot keeps its own padding, so the folio still stands
      clear of the picture. */
@@ -231,6 +238,21 @@
     padding-block: 1.25rem 1.5rem;
   }
 
+  /* The printer's mark heading the running foot, drawn short so the
+     number reads as the louder of the two. */
+  .folio-mark {
+    margin-bottom: 0.55rem;
+  }
+
+  .folio-mark .deco-rule__fan {
+    max-width: 2.75rem;
+  }
+
+  .folio-mark .deco-rule__mark {
+    width: 26px;
+    height: 15px;
+  }
+
   /* Folio: the page number, in the outside corner, as a book sets it. */
   .folio {
     font-size: 0.7rem;
@@ -243,10 +265,10 @@
   /* A line on love under the folio, set small and centred on the leaf the
      way a running foot sits below the numbering. */
   .folio-verse {
-    max-width: 58ch;
+    max-width: 76ch;
     margin: 0.55rem auto 0;
-    font-size: 0.78rem;
-    line-height: 1.45;
+    font-size: 0.95rem;
+    line-height: 1.5;
     text-align: center;
     text-wrap: balance;
     color: var(--color-blush-500);
@@ -860,7 +882,10 @@
 
   .spread {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    /* A book's pages are all one height. */
+    /* A book's pages are all one height. minmax(0, 1fr) rather than the
+       implicit auto row: an auto row grows past the height above it, which
+       let a long chapter push the leaf right out of the book. */
+    grid-template-rows: minmax(0, 1fr);
     height: clamp(30rem, 72vh, 42rem);
     flex: 1 1 auto;
   }
@@ -878,6 +903,9 @@
 
   .spread-leaf {
     padding: 2.5rem clamp(2rem, 3.4vw, 3rem) 0;
+    /* Flex items floor at min-content in the block axis by default, which
+       would keep a long leaf taller than its row. */
+    min-height: 0;
   }
 
   .spread-leaf--plate {
@@ -918,9 +946,11 @@
     background: linear-gradient(270deg, rgb(94 29 34 / 0) 0%, rgb(94 29 34 / 0.09) 100%);
   }
 
-  /* A book's pages are all one height, so overflow scrolls inside the
-     leaf rather than stretching it. */
-  .leaf-body {
+  /* A book's pages are all one height, so overflow scrolls inside the leaf
+     rather than stretching it. Both leaves do this: the running text on the
+     recto, and a plate set in type (the two venues) on the verso. */
+  .leaf-body,
+  .leaf-plate-body {
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
@@ -928,13 +958,51 @@
     padding-right: 0.25rem;
   }
 
-  .leaf-body::-webkit-scrollbar {
+  .leaf-body::-webkit-scrollbar,
+  .leaf-plate-body::-webkit-scrollbar {
     width: 5px;
   }
 
-  .leaf-body::-webkit-scrollbar-thumb {
+  .leaf-body::-webkit-scrollbar-thumb,
+  .leaf-plate-body::-webkit-scrollbar-thumb {
     background: var(--color-blush-300);
     border-radius: 999px;
+  }
+
+  /* A scroll box has to say it is one, or a guest reads three questions and
+     takes that for all of them. Overlay scrollbars (every Mac by default)
+     show nothing until you are already scrolling, so the leaf carries the
+     cue itself: two gradients per edge, a paper-coloured cover attached to
+     the content and a shadow attached to the box. At rest the cover sits
+     over the shadow; scroll, and the cover travels away and uncovers it. So
+     the shadow appears only where there is actually more page, and a leaf
+     that fits shows nothing at all. */
+  .leaf-body,
+  .leaf-plate-body {
+    --leaf-ground: var(--color-blush-50);
+    background:
+      linear-gradient(var(--leaf-ground) 45%, transparent) center top / 100% 2.25rem local no-repeat,
+      linear-gradient(transparent, var(--leaf-ground) 55%) center bottom / 100% 2.25rem local no-repeat,
+      radial-gradient(farthest-side at 50% 0, rgb(94 29 34 / 0.22), transparent) center top / 100% 1.5rem no-repeat,
+      radial-gradient(farthest-side at 50% 100%, rgb(94 29 34 / 0.22), transparent) center bottom / 100% 1.5rem no-repeat;
+  }
+
+  /* The plate leaf is printed a shade warmer, so its cover has to be too. */
+  .leaf-plate-body {
+    --leaf-ground: #f8ede8;
+  }
+
+  /* A flush-trimmed plate never scrolls, and a shadow over the photograph
+     would read as a smudge on the print. */
+  .spread-leaf--bleed .leaf-plate-body {
+    background: none;
+  }
+
+  /* A flush-trimmed plate is one image sized to the leaf, so it neither
+     scrolls nor wants the scrollbar's gutter. */
+  .spread-leaf--bleed .leaf-plate-body {
+    overflow: hidden;
+    padding-right: 0;
   }
 
   .folio--verso {

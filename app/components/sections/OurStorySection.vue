@@ -47,7 +47,6 @@ import storyPhoto from '~/assets/img/ourstory.jpg'
         face in it.
       </p>
 
-      <DecoRule class="mt-8" />
     </div>
   </BookSpread>
 </template>
