@@ -25,7 +25,7 @@ const art = [
 const particulars = [
   { term: 'Date', lines: ['Sunday, November 22, 2026 at 1:30pm'] },
   { term: 'Dress', lines: ['We kindly ask that all guests wear formal attire. Elegant dresses, suits, and ties are encouraged.'] },
-  { term: 'Reply by', lines: ['Sunday, September 27th, 2026'] },
+  { term: 'Reply by', lines: ['Wednesday, October 7th, 2026'] },
 ]
 </script>
 

@@ -4,7 +4,7 @@
       <p class="script max-w-[16rem]">Will you join us?</p>
       <DecoRule plain />
       <p class="label-sm">Kindly reply by</p>
-      <p class="text-blush-800">September 27th, 2026</p>
+      <p class="text-blush-800">October 7th, 2026</p>
     </template>
 
     <div class="flex h-full flex-col items-start">
@@ -17,7 +17,7 @@
           Changed your mind, or your plans? Reply again with the same link. The latest
           answer is the one that counts.
         </p>
-                <p>Kindly RSVP by September 27th. If we don't receive your response by the deadline, we'll unfortunately have to mark you as unable to attend. </p>
+        <p>Kindly RSVP by October 7th. If we don't receive your response by the deadline, we'll unfortunately have to mark you as unable to attend.</p>
       </div>
 
       <a
