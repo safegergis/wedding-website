@@ -31,9 +31,9 @@ import travelPhoto from '~/assets/img/travel.jpg'
       <p>
         <span class="run-in">Church to reception.</span>
         The two are not next door: the church is in Santa Ana and the reception is inland at
-        Trabuco Canyon, about forty-five minutes by car. The ceremony begins at half past
-        one and cocktails open at four, so there is room in the afternoon to make the drive
-        without hurrying.
+        Trabuco Canyon, about forty-five minutes by car. The ceremony begins at one
+        o'clock and cocktails open at four, so there is room in the afternoon to make the
+        drive without hurrying.
       </p>
 
       <p>
