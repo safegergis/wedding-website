@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import questionsPhoto from '~/assets/img/questions.jpg'
 
-const faqs = [
+const faqs: { question: string; answer: string; link?: { href: string; label: string } }[] = [
   {
     question: 'What should I wear?',
     answer: 'We kindly ask that all guests wear formal attire. Elegant dresses, suits, and ties are encouraged. Our ceremony is at a church and we ask that guests dress accordingly.',
@@ -21,6 +21,10 @@ const faqs = [
   {
     question: 'Is there a registry?',
     answer: 'Your presence at our wedding is the greatest gift. For those who have asked, we are lucky enough to have everything we need for our home. If you\'d like to contribute to our future adventures, we would be very grateful.',
+    link: {
+      href: 'https://withjoy.com/safe-and-merola/registry?utm_medium=web&utm_source=joy&utm_campaign=share_website_dialog',
+      label: 'Our honeymoon fund',
+    },
   },
 ]
 </script>
@@ -40,7 +44,19 @@ const faqs = [
     <dl>
       <div v-for="(faq, index) in faqs" :key="faq.question" :class="index > 0 && 'mt-5 border-t border-blush-200 pt-5'">
         <dt class="text-lg text-blush-700 italic">{{ faq.question }}</dt>
-        <dd class="mt-1 text-ink">{{ faq.answer }}</dd>
+        <dd class="mt-1 text-ink">
+          <p>{{ faq.answer }}</p>
+          <a
+            v-if="faq.link"
+            class="btn-quiet"
+            :href="faq.link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{{ faq.link.label }}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </dd>
       </div>
     </dl>
   </BookSpread>
