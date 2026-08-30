@@ -33,9 +33,9 @@ jobs:
       - name: Generate static site
         run: pnpm generate
         env:
-          # The site is served from https://safegergis.github.io/wedding-website/,
-          # so every asset and link needs that prefix baked in at build time.
-          NUXT_APP_BASE_URL: /wedding-website/
+          # The site is served from the custom domain https://msfor.life/ at the
+          # domain root, so no NUXT_APP_BASE_URL prefix is set. (When it lived at
+          # safegergis.github.io/wedding-website/ this was /wedding-website/.)
           # Repository variables override the fillers in nuxt.config.ts. Set them with:
           #   gh variable set WEDDING_PASSWORD --body 'the-real-password'
           #   gh variable set INVITE_TOKEN --body 'the-real-token'

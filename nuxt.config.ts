@@ -7,8 +7,8 @@ export default defineNuxtConfig({
     modules: ['@nuxt/fonts'],
     // Static hosting on GitHub Pages: `pnpm generate` writes .output/public with
     // a .nojekyll marker (so the _nuxt/ directory survives) and a 404.html SPA
-    // fallback. The site lives under a project path, so the deploy workflow sets
-    // NUXT_APP_BASE_URL=/wedding-website/ at build time; dev stays at /.
+    // fallback. The site is served from the custom domain root (msfor.life, via
+    // public/CNAME), so no base URL is set anywhere; dev and deploy both live at /.
     nitro: { preset: 'github_pages' },
     app: {
         head: {
