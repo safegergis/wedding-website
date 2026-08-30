@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
     css: ['~/assets/css/main.css'],
-    modules: ['@nuxt/fonts'],
+    modules: ['@nuxt/fonts', '@nuxt/image'],
     // Static hosting on GitHub Pages: `pnpm generate` writes .output/public with
     // a .nojekyll marker (so the _nuxt/ directory survives) and a 404.html SPA
     // fallback. The site is served from the custom domain root (msfor.life, via
@@ -16,6 +16,13 @@ export default defineNuxtConfig({
             meta: [
                 { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
                 { name: 'theme-color', content: '#f8ece8' },
+            ],
+            // A Coptic cross in the site's palette; public/favicon.svg is the
+            // source, with PNG and ICO renditions for browsers that need them.
+            link: [
+                { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+                { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
+                { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
             ],
         },
     },

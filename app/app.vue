@@ -16,6 +16,22 @@ onMounted(() => {
 useHead({
   title: 'Merola & Safe · November 22, 2026',
 })
+
+// Static deploy: the book renders client side behind the gate, so the gallery
+// is never prerendered and @nuxt/image would never learn which renditions to
+// generate. Resolving each URL here during `pnpm generate` registers it with
+// nitro (useImage appends x-nitro-prerender headers), so the optimized files
+// exist on the static host. The modifier constants are shared with
+// GallerySection.vue, which keeps these URLs identical to the ones requested
+// at runtime.
+if (import.meta.prerender) {
+  const img = useImage()
+  const [feature, ...tiles] = GALLERY_PLATES
+  img(feature!.src, GALLERY_FEATURE_MODIFIERS)
+  for (const plate of tiles) {
+    img(plate.src, GALLERY_TILE_MODIFIERS)
+  }
+}
 </script>
 
 <template>
