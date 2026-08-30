@@ -19,7 +19,7 @@ export const VENUES: Venue[] = [
     name: 'Archangel Michael Coptic Orthodox Church',
     street: '4405 W. Edinger Avenue',
     locality: 'Santa Ana, California 92704',
-    time: '1:30 pm',
+    time: '1:00 pm',
   },
   {
     label: 'Reception',

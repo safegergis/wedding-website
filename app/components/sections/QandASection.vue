@@ -8,7 +8,7 @@ const faqs: { question: string; answer: string; link?: { href: string; label: st
   },
   {
     question: 'When should I arrive?',
-    answer: 'The bride won\'t be fashionably late and neither should you! Please be at the church by 1:00 pm. The ceremony begins at 1:30 pm.',
+    answer: 'The bride won\'t be fashionably late and neither should you! Please be at the church by 12:30 pm. The ceremony begins at 1:00 pm.',
   },
   {
     question: 'Can I bring someone?',

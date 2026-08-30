@@ -23,7 +23,7 @@ const art = [
 // find them. The hours print on the plate beside each place; what is left
 // here is everything that is true of the whole day.
 const particulars = [
-  { term: 'Date', lines: ['Sunday, November 22, 2026 at 1:30pm'] },
+  { term: 'Date', lines: ['Sunday, November 22, 2026 at 1:00pm'] },
   { term: 'Dress', lines: ['We kindly ask that all guests wear formal attire. Elegant dresses, suits, and ties are encouraged.'] },
   { term: 'Reply by', lines: ['Wednesday, October 7th, 2026'] },
 ]
@@ -65,7 +65,7 @@ const particulars = [
     <div class="prose-lit text-ink">
       <p class="dropcap">
         One Sunday, two places, and a single afternoon between them. The ceremony begins at
-        half past one at Archangel Michael Coptic Orthodox Church in Santa Ana, and the
+        one o'clock at Archangel Michael Coptic Orthodox Church in Santa Ana, and the
         evening carries on inland at Dove Canyon Golf Club, where cocktails open at four.
         Both addresses carry a map link, so tap either one and your phone will do the rest.
       </p>

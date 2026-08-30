@@ -12,7 +12,7 @@ A wedding website for guests, built on Nuxt 4. It needs:
 
 **Mobile first.** Guests will overwhelmingly be on phones. The single leaf is the primary layout; the two-page spread at `>=64em` is the enhancement.
 
-The design pass is done; see Design below. The couple are **Merola and Safe**; the wedding is **Sunday, November 22, 2026**, with the ceremony at 1:30 pm at Archangel Michael Coptic Orthodox Church, Santa Ana, California (4405 W. Edinger Ave, 92704), and cocktails at 4:00 pm at Dove Canyon Golf Club, Trabuco Canyon (22682 Golf Club Dr, 92679). Dress is formal; adults only; no plus-ones beyond the names on the invitation. Parents are Nabih and Nermeen Ibrahim, and Basim and Nermina Gergis.
+The design pass is done; see Design below. The couple are **Merola and Safe**; the wedding is **Sunday, November 22, 2026**, with the ceremony at 1:00 pm at Archangel Michael Coptic Orthodox Church, Santa Ana, California (4405 W. Edinger Ave, 92704), and cocktails at 4:00 pm at Dove Canyon Golf Club, Trabuco Canyon (22682 Golf Club Dr, 92679). Dress is formal; adults only; no plus-ones beyond the names on the invitation. Parents are Nabih and Nermeen Ibrahim, and Basim and Nermina Gergis.
 
 What remains is **the rest of the real content**: the reply-by date and parking. Anything still unknown is bracketed `[Placeholder: ...]`, and the unfilled photographs are hatched `[Photograph]` slots. Keep the bracket convention for anything unfilled so nothing ships by accident.
 
