@@ -23,7 +23,7 @@ export const GALLERY_TILE_MODIFIERS = { format: 'webp', quality: 78, width: 560,
 /** Plate I, full on the verso. The source is 1119x1400; this keeps its proportions. */
 export const GALLERY_FEATURE_MODIFIERS = { format: 'webp', quality: 80, width: 800, height: 1000 }
 
-const COUNT = 53
+const COUNT = 51
 
 const ROMAN: [number, string][] = [
   [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I'],
